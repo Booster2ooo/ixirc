@@ -1,0 +1,14 @@
+{
+  "name": "ixirc",
+  "version": "0.0.1",
+  "description": "ixirc api module",
+  "main": "lib/ixirc",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Booster2ooo",
+  "license": "ISC",
+  "dependencies": {
+    "extend": "^3.0.0"
+  }
+}
