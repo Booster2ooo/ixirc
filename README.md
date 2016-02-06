@@ -33,6 +33,9 @@ ixirc()
         end = process.hrtime(start);
         console.log(end);
         console.log('done');
+        return instance.clearCache();
+    })
+    .then(function() {
         process.exit();
     })
     .catch(function(err) {
