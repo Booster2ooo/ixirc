@@ -3,10 +3,11 @@
   "version": "0.0.1",
   "description": "ixirc api module",
   "keywords:" : [
-	"irc xdcc",
-	"irc dcc",
-	"xdcc",
-	"dcc",	
+	"xdcc search",
+	"dcc search",
+	"irc xdcc search",
+	"irc dcc search",
+	"ixirc"
   ],
   "main": "lib/ixirc",
   "scripts": {

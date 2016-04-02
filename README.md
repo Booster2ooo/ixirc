@@ -1,6 +1,9 @@
 # ixirc
 Node.js module for ixirc api
 
+## Disclamer
+This module does not intend to facilitate illegal files transfer. The author may not be taken responsible for any copyright infringement or illegal uses.
+
 ## Usage
 
 ```javascript
