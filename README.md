@@ -9,7 +9,7 @@ This module does not intend to facilitate illegal files transfer. The author may
 ```javascript
 #!/usr/bin/env node
 
-var ixirc = require('./api/ixirc.js')
+var ixirc = require('ixirc')
   , instance
   , start
   , end
