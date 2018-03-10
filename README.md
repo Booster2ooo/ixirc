@@ -9,34 +9,31 @@ This module does not intend to facilitate illegal files transfer. The author may
 ```javascript
 #!/usr/bin/env node
 
-var ixirc = require('ixirc')
-  , instance
+var ixirc = require('./src/ixirc.js')
   , start
   , end
   ;
-ixirc()
-    .then(function(ixircInstance) {
-        instance = ixircInstance;
-        start = process.hrtime();
-        instance.on(instance.eventNames.progress, function(results) {
-            console.log(results.length + ' results found');
-        });
-        instance.on(instance.eventNames.complete, function(search) {
-            console.log(search.result.results.length + ' total results found');
-        });
-        return instance.search('test');
-    })
+ixirc.on(ixirc.events.progress, function(results) {
+	console.log('progress');
+	console.log(results.length + ' results found');
+});
+ixirc.on(ixirc.events.complete, function(results) {
+	console.log('complete');
+	console.log(results.length + ' total results found');
+});
+start = process.hrtime();
+ixirc.search('test')
     .then(function(results) {
         end = process.hrtime(start);
         start = process.hrtime();
         console.log(end);
-        return instance.search('test', true);
+        return ixirc.search('test', true);
     })
     .then(function(results) {
         end = process.hrtime(start);
         console.log(end);
         console.log('done');
-        return instance.clearCache();
+        return ixirc.clearCache();
     })
     .then(function() {
         process.exit();
