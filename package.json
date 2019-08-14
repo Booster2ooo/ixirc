@@ -1,6 +1,6 @@
 {
   "name": "ixirc",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "description": "Module for consuming ixIRC xdcc search engine api in a promise way",
   "keywords:" : [ "irc", "search", "ixirc", "dcc", "xdcc", "bot", "download", "iroffer", "dinoex", "fserver" ,"fileserver" ],
   "main": "src/ixirc",

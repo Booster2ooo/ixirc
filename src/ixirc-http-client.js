@@ -34,7 +34,8 @@ const
 			  , httpChunks = []
 			  ;
 			let request;
-			options.path += `?q=${terms}&pn=${pageIndex}`;
+			options.path += `?q=${encodeURIComponent(terms)}&pn=${pageIndex}`;
+			options.path = encodeURI(options.path);
 			request = http.request(options, (response) => {
 				response.on('data', handlers.data.bind(null, httpChunks) );
 				response.on('end', handlers.end.bind(null, httpChunks, resolve) );
