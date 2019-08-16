@@ -1,8 +1,20 @@
 {
   "name": "ixirc",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Module for consuming ixIRC xdcc search engine api in a promise way",
-  "keywords:" : [ "irc", "search", "ixirc", "dcc", "xdcc", "bot", "download", "iroffer", "dinoex", "fserver" ,"fileserver" ],
+  "keywords:": [
+    "irc",
+    "search",
+    "ixirc",
+    "dcc",
+    "xdcc",
+    "bot",
+    "download",
+    "iroffer",
+    "dinoex",
+    "fserver",
+    "fileserver"
+  ],
   "main": "src/ixirc",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,7 +25,7 @@
   "homepage": "https://github.com/Booster2ooo/ixirc",
   "repository": "git://github.com/Booster2ooo/ixirc",
   "bugs": {
-	"url":"https://github.com/Booster2ooo/ixirc/issues"
+    "url": "https://github.com/Booster2ooo/ixirc/issues"
   },
   "readmeFilename": "README.md"
 }

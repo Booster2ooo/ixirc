@@ -36,6 +36,9 @@ const
             let request;
             options.path += `?q=${encodeURIComponent(terms)}&pn=${pageIndex}`;
             request = http.request(options, (response) => {
+                if (response.statusCode  != 200) {
+                    return reject(`Bad response for ${options.path} - status: ${response.statusCode}`);
+                }
                 response.on('data', handlers.data.bind(null, httpChunks) );
                 response.on('end', handlers.end.bind(null, httpChunks, resolve) );
             });
