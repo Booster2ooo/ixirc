@@ -14,12 +14,12 @@ var ixirc = require('./src/ixirc.js')
   , end
   ;
 ixirc.on(ixirc.events.progress, function(results) {
-	console.log('progress');
-	console.log(results.length + ' results found');
+    console.log('progress');
+    console.log(results.length + ' results found');
 });
 ixirc.on(ixirc.events.complete, function(results) {
-	console.log('complete');
-	console.log(results.length + ' total results found');
+    console.log('complete');
+    console.log(results.length + ' total results found');
 });
 start = process.hrtime();
 ixirc.search('test')
