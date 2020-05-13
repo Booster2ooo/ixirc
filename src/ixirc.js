@@ -7,6 +7,8 @@ const
   , ixircCache = require('./ixirc-cache.js')
   
   , emitter = new EventEmitter()
+
+  , cancel = false
   
   , doSearch = (terms) => new Promise((resolve, reject) => {
         let results = []
@@ -14,7 +16,7 @@ const
                 if (!resp) {
                     return rej('empty ixirc reponse');
                 }
-                if (!resp.c || !resp.results) {
+                if (!resp.c || !resp.results || cancel) {
                     return res(results);
                 }
                 // first result of a page is the same than the last result of the previous page            
@@ -41,19 +43,22 @@ const
     
   , ixirc = {
         search: (terms, cached) => new Promise((resolve, reject) => {
+            cancel = false;
             if(!terms) {
                 return reject('no search terms provided');
             }
             if(cached) {
                 let cache = ixircCache.get(terms);
                 if (cache && cache.done) {
-                emitter.emit(ixircEvents.complete, cache.results);
-                return resolve(cache.results);
+                    emitter.emit(ixircEvents.complete, cache.results);
+                    return resolve(cache.results);
                 }
             }
             doSearch(terms)
                 .then((results) => {
-                    ixircCache.set(terms, results);
+                    if (!cancel) {
+                        ixircCache.set(terms, results);
+                    }
                     emitter.emit(ixircEvents.complete, results);
                     resolve(results);
                 })
@@ -70,6 +75,10 @@ const
             else {
                 ixircCache.clear();
             }
+            return Promise.resolve();
+        }
+      , cancel: () => { 
+            cancel = true;
             return Promise.resolve();
         }
       , events: ixircEvents

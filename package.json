@@ -1,6 +1,6 @@
 {
   "name": "ixirc",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Module for consuming ixIRC xdcc search engine api in a promise way",
   "keywords:": [
     "irc",
