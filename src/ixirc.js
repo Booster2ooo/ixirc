@@ -1,4 +1,6 @@
 ﻿'use strict';
+let cancel = false;
+
 const
     EventEmitter = require('events')
     
@@ -7,8 +9,6 @@ const
   , ixircCache = require('./ixirc-cache.js')
   
   , emitter = new EventEmitter()
-
-  , cancel = false
   
   , doSearch = (terms) => new Promise((resolve, reject) => {
         let results = []
